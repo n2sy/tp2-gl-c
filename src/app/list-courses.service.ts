@@ -33,5 +33,10 @@ export class ListCoursesService {
   getAllCourses() {
     return this.tabCourses;
   }
+
+  getCourseById(selectedId) {
+    return this.tabCourses.find((c) => c.id == selectedId);
+  }
+
   constructor() {}
 }
