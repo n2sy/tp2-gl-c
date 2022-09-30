@@ -5,15 +5,41 @@
       <ion-back-button defaultHref="/home"></ion-back-button>
     </ion-buttons>
     <ion-buttons slot="end">
-      <ion-button>
+      <ion-button (click)="presentAlert()">
         <ion-icon slot="icon-only" name="trash-outline"></ion-icon>
       </ion-button>
-
     </ion-buttons>
   </ion-toolbar>
 
 </ion-header>
 
 <ion-content>
+  <div class="ion-margin">
+    <strong>Details of this course</strong>
+  </div>
+
+  <ion-grid>
+    <ion-row>
+      <ion-col size="6" offset="3">
+        <ion-img [src]="selectedCourse.image"></ion-img>
+
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-label>{{ selectedCourse.title }} By {{ selectedCourse.author}}</ion-label>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <strong>Content of this course</strong>
+        <ion-list>
+          <ion-item *ngFor="let keyword of selectedCourse.keywords">
+            <ion-label>{{ keyword }} </ion-label>
+          </ion-item>
+        </ion-list>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 
 </ion-content>
